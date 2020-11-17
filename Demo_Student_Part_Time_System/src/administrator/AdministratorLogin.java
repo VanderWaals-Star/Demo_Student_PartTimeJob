@@ -47,12 +47,10 @@ public class AdministratorLogin extends HttpServlet {
 			//request.getRequestDispatcher("AdministratorOperation.jsp").forward(request, response);
 		}
 		else {
+			session.setAttribute("administratorAccount", aa.getAccountName());
 			session.setAttribute("isError","true");
 			response.sendRedirect("AdministratorLogin.jsp");
 			//request.getRequestDispatcher("AdministratorLogin.jsp").forward(request, response);
 		}
 	}
 }
-
-//20177710750 уерг
-

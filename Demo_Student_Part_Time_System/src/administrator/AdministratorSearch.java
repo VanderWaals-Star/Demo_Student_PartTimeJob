@@ -41,6 +41,8 @@ public class AdministratorSearch extends HttpServlet {
 				}
 				else if(target.contentEquals((String)session.getAttribute("employer"))){
 					rs = stat.executeQuery("SELECT * FROM employer_information WHERE AccountNumber='" + searchValue + "' OR Name='" + searchValue + "' OR PhoneNumber='" + searchValue + "';");
+				}else if(target.contentEquals((String)session.getAttribute("jobs"))){
+					rs = stat.executeQuery("SELECT * FROM part_time_job WHERE AccountNumber='" + searchValue + "' OR Name='" + searchValue + "' OR PhoneNumber='" + searchValue + "';");
 				}
 			}
 			catch(SQLException e) {

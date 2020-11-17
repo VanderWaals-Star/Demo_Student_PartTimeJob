@@ -1,7 +1,4 @@
 <%@ page contentType="text/html;charset=gb2312" %>
-<%
-if(null == session.getAttribute("administratorAccount")){
-%>
 <html>
 	<head>
 		<title>管理员登录</title>
@@ -29,44 +26,47 @@ if(null == session.getAttribute("administratorAccount")){
 		</style>
 	</head>
 	
-	<body><div id="main">
-		<h1 align="center">学生兼职系统</h1>
-		
-		<form action="AdministratorLogin" method="post">
-			<table align="center">
-				<tr align="center" id="title"><td colspan="2">管理员登录</td></tr>
-				<tr>
-					<td>账号:&nbsp;</td>
-					<td><input type="text" name="accountNumber" /></td>
-				</tr>
-				<tr>
-					<td>密码:</td>
-					<td><input type="password" name="password" /></td>
-				</tr>
-				<tr align="center">
-					<td colspan="2"><input class="button" type="submit" value="登录" />&nbsp;&nbsp;&nbsp;&nbsp;
-					<input class="button" type="reset" value="重置" /></td>
-				</tr>
-			</table>
-		</form>
-<%
-	if("true".equals(session.getAttribute("isError"))){
-%>
-		<p id="prompt">*账号或密码错误</p>
-<%
-	}
-%>
-	</div></body>
-	
-</html>
-<%
-}
-else{
-%>
-<jsp:forward page="AdministratorOperation.jsp" />
-<%
-}
-%>
+	<body>
+		<%
+			if(null == session.getAttribute("administratorAccount")){
+		%>
+			<div id="main">
+				<h1 align="center">学生兼职系统</h1>
 
-<!-- 20177710750 张仪 -->
+				<form action="AdministratorLogin" method="post">
+					<table align="center">
+						<tr align="center" id="title"><td colspan="2">管理员登录</td></tr>
+						<tr>
+							<td>账号:&nbsp;</td>
+							<td><input type="text" name="accountNumber" /></td>
+						</tr>
+						<tr>
+							<td>密码:</td>
+							<td><input type="password" name="password" /></td>
+						</tr>
+						<tr align="center">
+							<td colspan="2"><input class="button" type="submit" value="登录" />&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="button" type="reset" value="重置" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+			<%
+			}
+			else{
+				if("true".equals(session.getAttribute("isError"))){
+			%>
+				<p id="prompt">*账号或密码错误</p>
+			<%
+				}
+				else{
+			%>
+			<jsp:forward page="AdministratorOperation.jsp" />
+			<%
+					}
+				}
+			%>
+	</body>
+</html>
+
 

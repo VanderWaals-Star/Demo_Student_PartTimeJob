@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: VanderWaals
+  Date: 2020/11/17
+  Time: 20:10
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
@@ -13,7 +20,7 @@
 <div class="main">
     <div class="head">
         <%
-            if(!(null==request.getParameter("text5"))) {
+            if(!request.getParameter("text5").equals(null)) {
                 if (!request.getAttribute("ResultSet").equals(null)) {
                     ResultSet resultSet = (ResultSet) request.getAttribute("ResultSet");
                     int count = resultSet.getMetaData().getColumnCount();
