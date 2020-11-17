@@ -14,9 +14,16 @@
     <div class="head">
         <%
             if(!(null==request.getParameter("text5"))) {
-
-                session.setAttribute("target",request.getParameter("method"));
-                request.setAttribute("searchValue","jobs");
+                String jobs = request.getParameter("method");
+                String value = null;
+                if("地址".equals(jobs))
+                    value = "AreaId";
+                if("薪金".equals(jobs))
+                    value = "PayValue";
+                if("时间".equals(jobs))
+                    value = "PayTime";
+                session.setAttribute("target",request.getParameter("jobs"));
+                request.setAttribute("searchValue",request.getParameter("jobs"));
                 if (!request.getAttribute("ResultSet").equals(null)) {
                     ResultSet resultSet = (ResultSet) request.getAttribute("ResultSet");
                     int count = resultSet.getMetaData().getColumnCount();
