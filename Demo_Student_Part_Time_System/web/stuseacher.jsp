@@ -47,7 +47,6 @@
       <%
        if(!(session.getAttribute("resultSet")==null)){
         ResultSet resultSet = (ResultSet) session.getAttribute("resultSet");
-        int count = resultSet.getMetaData().getColumnCount();
         while(resultSet.next()){
            String AccountNumber = resultSet.getString(1);
            String Name = resultSet.getString(3);

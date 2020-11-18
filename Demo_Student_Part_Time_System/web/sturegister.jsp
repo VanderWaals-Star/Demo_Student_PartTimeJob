@@ -15,12 +15,14 @@
       <form action="StudentRegister" method="post">
        <div class="txt1">
             <input name="name" type="text" class="txtphone" placeholder="请输入姓名"/>
-      </div>
-
-        <div class="txt1">
-            <input name="gender" type="text" class="txtphone" placeholder="请输入个人性别，如：男/女"/>
-      </div>
-
+           <br>
+           <div align="center">
+            <select name="gender">
+                <option value="0" selected>男</option>
+                <option value="1" selected>女</option>
+            </select>
+           </div>
+       </div>
         <div class="txt1">
             <input name="birthDate" type="text" class="txtphone" placeholder="请输入出生日期，如：2020-01-01"/>
       </div>

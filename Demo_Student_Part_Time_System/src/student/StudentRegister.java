@@ -40,7 +40,7 @@ public class StudentRegister extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf8");
 		String name = request.getParameter("name");
-		int gender = request.getParameter("gender").contentEquals("Ů")? 0 : 1;
+		int gender = request.getParameter("gender").equals("0")? 0 : 1;
 		Date birthDate = Date.valueOf(request.getParameter("birthDate"));
 		String educationalQualification = request.getParameter("educationalQualification");
 		String phoneNumber = request.getParameter("phoneNumber");

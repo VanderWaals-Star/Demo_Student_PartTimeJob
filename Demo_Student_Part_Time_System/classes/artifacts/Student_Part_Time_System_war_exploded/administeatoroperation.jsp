@@ -13,7 +13,7 @@
    <div class="right">
    <div class="txt"><p class="title">你好，管理员 <%=session.getAttribute("accountName") %></p></div>
    <a href="admseacher.jsp"><div class=" a3">管理招聘信息</div></a>
-   <a href="admstucheck.jsp"><div class=" a4">查看学生信息</div></a>
+   <a href="EmployerSearchStu"><div class=" a4">查看学生信息</div></a>
    </div>
   </body>
 </html>
