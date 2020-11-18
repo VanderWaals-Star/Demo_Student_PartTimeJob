@@ -386,5 +386,3 @@ public class Database {
 	}
 }
 
-//20177710750 уерг
-

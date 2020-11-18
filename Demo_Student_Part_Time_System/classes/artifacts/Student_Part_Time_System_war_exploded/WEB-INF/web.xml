@@ -101,6 +101,26 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>EmployerSearch</display-name>
+    <servlet-name>EmployerSearch</servlet-name>
+    <servlet-class>employer.EmployerSearch</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmployerSearch</servlet-name>
+    <url-pattern>/EmployerSearch</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EmployerSearchStu</display-name>
+    <servlet-name>EmployerSearchStu</servlet-name>
+    <servlet-class>employer.EmployerSearchStu</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmployerSearchStu</servlet-name>
+    <url-pattern>/EmployerSearchStu</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>EmployerResetPassword</display-name>
     <servlet-name>EmployerResetPassword</servlet-name>
     <servlet-class>employer.EmployerResetPassword</servlet-class>

@@ -12,54 +12,65 @@
 <div class="up"><h1 class=title>大学生兼职网</h1></div>
 <div class="main">
     <div class="head">
-        <%
-            if(!(null==request.getParameter("text5"))) {
-                if (!request.getAttribute("ResultSet").equals(null)) {
-                    ResultSet resultSet = (ResultSet) request.getAttribute("ResultSet");
-                    int count = resultSet.getMetaData().getColumnCount();
-                    while (resultSet.next()) {
-                        for (int i = 0; i < count; i++) {
-                            out.print(resultSet.getString(i));
-                            if (i < count)
-                                out.println(",");
-                        }
-                    }
-                }
-            }
-            else{
-        %>
-        <form name="text5" action="AdministratorSearch">
+        <form id="text5" action="EmployerSearch">
             <table>
                 <tr>
                     <td>
                         &nbsp请选择查询条件：
-                        <select>
-                            <option value="地址">地址</option>
-                            <option value="薪金">薪金</option>
-                            <option value="时间">时间</option>
+                        <select name="searchBy">
+                            <option value="AreaId" >地址</option>
+                            <option value="PayValue">薪金</option>
+                            <option value="PayTime">时间</option>
                         </select>
                     </td>
                     <td>
                         &nbsp&nbsp&nbsp请输入查询信息
-                        <input type="text" id="input_text" size="20">
-                        <input type="submit" id="input_submit" value="查询">
-                        <input type="reset"  id="input_reset" value="重置">
+                        <input type="text" id="input" name="searchValue" size="20">
+                        <input type="submit" id="input" value="查询">
+                        <input type="reset"  id="input" value="重置">
                     </td>
                     <td>
                         &nbsp&nbsp&nbsp增加工作：
-                        <input type="submit" id="input_add" value="增加"/>
+                        <input name="add" type="submit" id="input" value="增加"/>
                     </td>
                     <td>
                         &nbsp&nbsp&nbsp删除工作：
-                        <input type="submit" id="input_delete" value="删除"/>
+                        <input name="delete" type="submit" id="input" value="删除"/>
                     </td>
                 </tr>
             </table>
         </form>
+        <table>
+            <tr>
+                <td width = "100" align = "center">AccountNumber</td>
+                <td width = "100" align = "center">Password</td>
+                <td width = "100" align = "center">Name</td>
+                <td width = "100" align = "center">AreaId</td>
+                <td width = "100" align = "center">Phone</td>
+            </tr>
+            <%
+                if(!(session.getAttribute("resultSet")==null)){
+                    ResultSet resultSet = (ResultSet) session.getAttribute("resultSet");
+                    while(resultSet.next()){
+                        String AccountNumber = resultSet.getString(1);
+                        String Password = resultSet.getString(2);
+                        String Name = resultSet.getString(3);
+                        String AreaId = resultSet.getString(4);
+                        String Phone = resultSet.getString(5);
+            %>
+            <tr>
+                <td height="40" align="center" valign="middle"><%=AccountNumber%></td>
+                <td align="center" valign="middle"><%=Password%></td>
+                <td valign="middle" align="center"><%=Name%></td>
+                <td height="40" align="center" valign="middle"><%=AreaId%></td>
+                <td align="center" valign="middle"><%=Phone%></td>
+            </tr>
+            <%
+                    }
+                }
+            %>
+        </table>
     </div>
 </div>
-<%
-    }
-%>
 </body>
 </html>

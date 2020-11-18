@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: VanderWaals
-  Date: 2020/11/17
-  Time: 20:10
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
@@ -18,26 +11,40 @@
 <body >
 <div class="up"><h1 class=title>大学生兼职网</h1></div>
 <div class="main">
-    <div class="head">
-        <%
-            session.setAttribute("target",request.getParameter("method"));
-            request.setAttribute("searchValue","jobs");
-            if (!request.getAttribute("ResultSet").equals(null)) {
-                ResultSet resultSet = (ResultSet) request.getAttribute("ResultSet");
-                int count = resultSet.getMetaData().getColumnCount();
-                while (resultSet.next()) {
-                    for (int i = 0; i < count; i++) {
-                        out.print(resultSet.getString(i));
-                        if (i < count)
-                            out.println(",");
+            <table>
+                <tr>
+                    <td width = "100" align = "center">AccountNumber</td>
+                    <td width = "100" align = "center">Name</td>
+                    <td width = "100" align = "center">Gender</td>
+                    <td width = "100" align = "center">Edu</td>
+                    <td width = "100" align = "center">Phone</td>
+                </tr>
+                <%
+                    if(!(session.getAttribute("resultSet")==null)){
+                        ResultSet resultSet = (ResultSet) session.getAttribute("resultSet");
+                        while(resultSet.next()){
+                            String AccountNumber = resultSet.getString(1);
+                            String Name = resultSet.getString(3);
+                            String Gender = resultSet.getString(4);
+                            if(Gender=="1")
+                                Gender="男";
+                            else
+                                Gender="女";
+                            String Edu = resultSet.getString(6);
+                            String Phone = resultSet.getString(7);
+                %>
+                <tr>
+                    <td height="40" align="center" valign="middle"><%=AccountNumber%></td>
+                    <td valign="middle" align="center"><%=Name%></td>
+                    <td height="40" align="center" valign="middle"><%=Gender%></td>
+                    <td height="40" align="center" valign="middle"><%=Edu%></td>
+                    <td align="center" valign="middle"><%=Phone%></td>
+                </tr>
+                <%
+                        }
                     }
-                }
-            }
-        %>
-    </div>
+                %>
+            </table>
 </div>
-<%
-    }
-%>
 </body>
 </html>

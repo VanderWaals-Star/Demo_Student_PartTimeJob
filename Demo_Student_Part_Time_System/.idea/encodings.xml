@@ -4,5 +4,6 @@
     <file url="file://$PROJECT_DIR$/src/administrator/AdministratorAccount.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/administrator/AdministratorLogin.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/administrator/AdministratorSearch.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/database/Database.java" charset="GBK" />
   </component>
 </project>
